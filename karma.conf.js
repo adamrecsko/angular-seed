@@ -7,9 +7,20 @@ module.exports = function(config){
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/components/**/*.js',
-      'app/view*/**/*.js'
+      'app/**/*.html',
+      'app/*.js',
+      'app/**/*.js',
+      'unit-tests/**/*.js'
     ],
+
+    preprocessors: {
+      '**/*.html': 'ng-html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/',
+      moduleName: 'mytemplates'
+    },
 
     autoWatch : true,
 
@@ -21,7 +32,8 @@ module.exports = function(config){
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
             ],
 
     junitReporter : {
